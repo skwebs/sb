@@ -1,0 +1,20 @@
+{
+  "name": "Bootstrap Sidebar",
+  "short_name": "BS_App",
+  "icons": [
+    {
+      "src": "img/favicon/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicon/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#009FFD",
+  "theme_color": "#214491"
+  }
