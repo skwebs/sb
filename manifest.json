@@ -1,20 +1,23 @@
-{
-  "name": "Bootstrap Sidebar",
-  "short_name": "BS_App",
-  "icons": [
-    {
-      "src": "img/favicon/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "img/favicon/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#009FFD",
-  "theme_color": "#214491"
-  }
+{"name" : "Bootstrap Sidebar",
+    "short_name" : "Sidebar",
+    "start_url" : "https://skwebs.github.io/sidebar/i.html",
+    "display" : "standalone",
+    "background_color" : "#2874F0",
+    "theme_color" : "#214491",
+    "lang" : "",
+    "orientation" : "portrait-primary",
+    "description" : "Sidebar with Bootstrap 4 Project.",
+    "scope" : "/sidebar/",
+    "generated" : "undefined",
+    "icons" : [
+	{
+		"src": "https://skwebs.github.io/sidebar/img/favicon/android-chrome-192x192.png",
+		"sizes": "192x192",
+		"type": "image/png"
+	},
+	{
+		"src": "https://skwebs.github.io/sidebar/img/favicon/android-chrome-512x512.png",
+		"sizes": "512x512",
+		"type": "image/png"
+	}
+    ]}
