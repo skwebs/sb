@@ -1,9 +1,14 @@
 /* sidebar-jquery.js */
+var nav = $("._sidebar");
+var brand = $("._sb-brand");
+var menu = $("._sb-menu");
+var toggler = $("._sb-toggler");
+/*=============================================*/
 $(function(){
 if($("nav").hasClass("_sidebar")){
 //auto apply
-$("._sidebar").addClass("justify-content-sm-start");
-if($("._sidebar").hasClass("navbar-expand-md")){
+nav.addClass("justify-content-sm-start");
+if(nav.hasClass("navbar-expand-md")){
 
 }else{
 	alert("I develop script by mobile so, Currently Sidebar building for only 'navbar-expand-md'")
@@ -13,8 +18,8 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 
 
 
-	var navHeight = $("._sidebar").outerHeight();
-	var navHeightI = $("._sidebar").innerHeight();
+	var navHeight = nav.outerHeight();
+	var navHeightI = nav.innerHeight();
 	/*
 	|---------------------------------------
 	| Menu & Overlay js
@@ -22,26 +27,26 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 	*/
 	var overlayElem = document.createElement('div');overlayElem.classList = "_overlay";
 	
-	if($("._sidebar").hasClass("fixed-top") && $("._sidebar").hasClass("_menu-under-nav")){
+	if(nav.hasClass("fixed-top") && nav.hasClass("_menu-under-nav")){
 	//menu under navigation
 	function menuUnderNav(){
-		$("._sb-menu").css("top", (navHeight - .17));
+		menu.css("top", (navHeight - .17));
 		}
 		menuUnderNav(); 
 		$("window").on("resize", function (){
 			menuUnderNav();
 		});
-		$("._sidebar").on("click", function(){
+		nav.on("click", function(){
 			menuUnderNav();
 		});
-		$("._sb-toggler").on("click", function(){
+		toggler.on("click", function(){
 			menuUnderNav();
 		});
 		
 		$("body").append(overlayElem);
 	}else{
 		//menu over navigation
-		$("._sidebar").append(overlayElem);
+		nav.append(overlayElem);
 	}
 	
 	/*
@@ -49,11 +54,11 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 	| Mobile Menu Side js
 	|---------------------------------------
 	*/
-	if($("._sidebar").hasClass("_menu-side-right")){
-		$("._sb-menu").addClass("_menu-on-right");
-		$("._sb-toggler").addClass("hamburger--arrowalt-r");
+	if(nav.hasClass("_menu-side-right")){
+		nav.addClass("_menu-on-right");
+		toggler.addClass("hamburger--arrowalt-r");
 	} else {
-		$("._sb-toggler").addClass("hamburger--arrowalt");
+		toggler.addClass("hamburger--arrowalt");
 	}
 	/*
 	|---------------------------------------
@@ -61,9 +66,9 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 	|---------------------------------------
 	*/
 	var root = document.documentElement;
-	if($("._sidebar").hasClass("navbar-light")){
+	if(nav.hasClass("navbar-light")){
 		root.style.setProperty('--hamburger-color', 'black');
-	} else if($("._sidebar").hasClass("navbar-dark")){
+	} else if(nav.hasClass("navbar-dark")){
 		root.style.setProperty('--hamburger-color', "white");
 	}
 	
@@ -72,12 +77,12 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 	| Navbar Background & Color
 	|---------------------------------------
 	*/
-	var nav_bg = $("._sidebar").attr("data-nav_bg");
+	var nav_bg = nav.attr("data-nav_bg");
 	if(nav_bg!=""){
 		$("._sidebar, ._sb-menu").css("background", nav_bg);
 		//$("_sb-menu").css("background", nav_bg);
 	}else{
-		if($("._sidebar").hasClass("navbar-light")){
+		if(nav.hasClass("navbar-light")){
 			$("._sidebar, _sb-menu").addClass("bg-light");
 	//		$("_sb-menu").addClass("bg-light");
 		} else if(nav.hasClass("navbar-dark")){
@@ -92,12 +97,12 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 	| Brand Side js
 	|---------------------------------------
 	*/
-	if($("._sidebar").hasClass("_brand-side-right")){
+	if(nav.hasClass("_brand-side-right")){
 		//brand side right
-		$("._sb-brand").addClass("ml-auto order-1")
+		brand.addClass("ml-auto order-1")
 	}else{
 		//brand side left
-		$("._sb-brand").addClass("mr-auto order-0")
+		brand.addClass("mr-auto order-0")
 	}
 	
 	
@@ -108,7 +113,7 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 	*/
 	$("._sb-toggler, ._overlay").on("click", function(){
 		$("._sb-menu, ._overlay").toggleClass("_open");
-		$("._sb-toggler").toggleClass("is-active");
+		toggler.toggleClass("is-active");
 	});
 	
 	/*
@@ -135,8 +140,8 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 	};                                                
 	
 	function handleTouchMove(evt) {
-		var nvhtO = $("._sidebar").outerHeight();
-		var nvhtI = $("._sidebar").innerHeight();
+		var nvhtO = nav.outerHeight();
+		var nvhtI = nav.innerHeight();
 		
 		
 		if ( ! xDown || ! yDown ) {
@@ -153,25 +158,25 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 		
 		var body_width = document.body.clientWidth;
 		var diff = body_width - xDown;
-		if($("._sidebar").hasClass("_menu-side-right")){
+		if(nav.hasClass("_menu-side-right")){
 		if(diff < 10){
 			/* swipe from right border */
 			$("._sb-menu, ._overlay").addClass("_open");
-			$("._sb-toggler").addClass("is-active");
+			toggler.addClass("is-active");
 		}else{
 			$("._sb-menu, ._overlay").removeClass("_open");
-			$("._sb-toggler").removeClass("is-active");
+			toggler.removeClass("is-active");
 		}
 		}else{
 			if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
 				if ( xDiff > 0 ) {
 					/* left swipe */ 
 					$("._sb-menu, ._overlay").removeClass("_open");
-					$("._sb-toggler").removeClass("is-active");
+					toggler.removeClass("is-active");
 				} else if(xDown < 10 && xDiff < 0){
 					/* right swipe */
 					$("._sb-menu, ._overlay").addClass("_open");
-					$("._sb-toggler").addClass("is-active");
+					toggler.addClass("is-active");
 				}                       
 			}
 		}
@@ -186,7 +191,7 @@ if($("._sidebar").hasClass("navbar-expand-md")){
 	|---------------------------------------
 	*/
 	function contentUnderNav(){
-		if($("._sidebar").hasClass("fixed-top") && $("._sidebar").hasClass("_content-under-nav")){
+		if(nav.hasClass("fixed-top") && nav.hasClass("_content-under-nav")){
 			$("body").css("padding-top", (navHeight - 0.17));
 		}
 	}
