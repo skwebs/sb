@@ -90,7 +90,7 @@ https://cdn.jsdelivr.net/gh/skwebs/sidebar/dist/js/sidebar-jquery.min.js
 <script src="https://cdn.jsdelivr.net/gh/skwebs/sidebar/dist/js/sidebar-jquery.min.js"></script>
 ```
 
-###header
+### only header
 ```html
 <header>
 	<!--Navbar-->
