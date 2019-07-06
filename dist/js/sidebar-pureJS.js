@@ -5,7 +5,7 @@
 |---------------------------------------
 */
 var nav = document.querySelector("nav");
-var menu_content = document.querySelector("._sb-menu");
+var menu = document.querySelector("._sb-menu");
 var brand = document.querySelector("._sb-brand");
 var $toggler = document.querySelector("._sb-toggler");
 
@@ -21,7 +21,7 @@ if(document.querySelector("nav").classList.contains("_sidebar")){
 	//menu under navigation
 	function setMenuTop(){
 		var navOuterHeight = nav.offsetHeight;
-		menu_content.style.top = (navOuterHeight - .17) + "px";
+		menu.style.top = (navOuterHeight - .17) + "px";
 		}
 		setMenuTop(); 
 		window.addEventListener("resize", function (){
@@ -50,8 +50,9 @@ if(document.querySelector("nav").classList.contains("_sidebar")){
 	|---------------------------------------
 	*/
 	if(nav.classList.contains("_menu-side-right")){
-		menu_content.classList.add("_menu-on-right");
+		menu.classList.add("_menu-on-right");
 		$toggler.classList.add("hamburger--arrowalt-r");
+	document.body.onload = function(){menu.style.transition = "all ease .25s";}
 	} else {
 		$toggler.classList.add("hamburger--arrowalt");
 	}
@@ -75,14 +76,14 @@ if(document.querySelector("nav").classList.contains("_sidebar")){
 	var nav_bg = nav.getAttribute("data-nav_bg");
 	if(nav_bg!=""){
 		nav.style.background = nav_bg;
-		menu_content.style.background = nav_bg;
+		menu.style.background = nav_bg;
 	}else{
 		if(nav.classList.contains("navbar-light")){
 			nav.classList.add("bg-light");
-			menu_content.classList.add("bg-light");
+			menu.classList.add("bg-light");
 		} else if(nav.classList.contains("navbar-dark")){
 			nav.classList.add("bg-dark");
-			menu_content.classList.add("bg-dark");
+			menu.classList.add("bg-dark");
 		}
 	}
 	
@@ -112,7 +113,7 @@ if(document.querySelector("nav").classList.contains("_sidebar")){
 	|---------------------------------------
 	*/
 	/*$(".navbar-toggler, .overlay").on("click", function(){
-		$(".menu_content, .overlay").toggleClass("open");
+		$(".menu, .overlay").toggleClass("open");
 		$(".navbar-toggler").toggleClass("is-active");
 	});*/
 	var overlay = document.querySelector("._overlay");
@@ -120,12 +121,12 @@ if(document.querySelector("nav").classList.contains("_sidebar")){
 	
 	$toggler.addEventListener("click", function(){
 		overlay.classList.toggle("_open");
-		menu_content.classList.toggle("_open");
+		menu.classList.toggle("_open");
 		$toggler.classList.toggle("is-active");
 	}, false);
 	overlay.addEventListener("click", function(){
 		overlay.classList.toggle("_open");
-		menu_content.classList.toggle("_open");
+		menu.classList.toggle("_open");
 		$toggler.classList.toggle("is-active");
 	}, false);
 	
@@ -170,11 +171,11 @@ if(document.querySelector("nav").classList.contains("_sidebar")){
 		if(nav.classList.contains("_menu-side-right")){
 		if(diff < 10){
 			/* swipe from right border */
-			menu_content.classList.add("_open");
+			menu.classList.add("_open");
 			overlay.classList.add("_open");
 			$toggler.classList.add("is-active");
 		}else{
-			menu_content.classList.remove("_open");
+			menu.classList.remove("_open");
 			overlay.classList.remove("_open");
 			$toggler.classList.remove("is-active");
 		}
@@ -182,12 +183,12 @@ if(document.querySelector("nav").classList.contains("_sidebar")){
 		if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
 			if ( xDiff > 0 ) {
 				/* left swipe */ 
-				menu_content.classList.remove("_open");
+				menu.classList.remove("_open");
 				overlay.classList.remove("_open");
 				$toggler.classList.remove("is-active");
 			} else if(xDown < 10 && xDiff < 0){
 				/* right swipe */
-				menu_content.classList.add("_open");
+				menu.classList.add("_open");
 				overlay.classList.add("_open");
 				$toggler.classList.add("is-active");
 			}                       

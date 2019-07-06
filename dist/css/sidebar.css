@@ -19,7 +19,6 @@
 		left:0;
 		margin:auto;
 		transform: translateX(-100%);
-		transition:all ease .25s;
 		max-width:280px;
 	}
 	._sb-menu._menu-on-right{
